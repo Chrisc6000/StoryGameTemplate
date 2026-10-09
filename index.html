@@ -1,1 +1,30 @@
-<!-- Add your index page here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locked-Door Deadline</title>
+</head>
+<body>
+    <h1>Locked-Door Deadline</h1>
+    <p>Welcome to the Locked-Door Deadline story game. Make your choices wisely!</p>
+    <img src="hallway.jpg" width = "290" alt="Hallway">
+    <p><a href="about.html">About me</a></p>
+    <p><a href="Donate.html">Donate</a></p>
+    <p><a href="Contact.html">Contact Us</a></p>
+    <form action="game.html" method="get">
+        <label for="gender">Gender:</label>
+       <input type="radio" id="Female" name="gender" value="female">
+       <label for="Female">Female</label>
+       <input type="radio" id="Male" name="gender" value="male">
+       <label for="Male">Male</label>
+       <input type="radio" id="Other" name="gender" value="other">
+       <label for="Other">Other</label>
+        <br><br>
+        <label for="age">Age: Must be older than 14:</label>
+        <input type="number" name="age" id="age" min="15" required>
+        <br><br>
+        <input type="submit" value="Start Game">
+    </form>
+</body>
+</html>
