@@ -44,9 +44,10 @@ const scenes = {
   },
 
   entrance: {
-    title: "Location: Entrance",
+    location: "Location: Entrance",
     character: "Interviewee:Neighbor",
     text: "well what I remember...",
+    image: "well what I remember...",
     choices: [
       {
         text: "Ask about the dog",
