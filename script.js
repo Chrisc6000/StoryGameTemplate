@@ -5,6 +5,7 @@ let alertLevel = 0;
 
 const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
+const sceneImage = document.getElementById("scene-image");
 const choicesContainer = document.getElementById("choices-container");
 const characterName = document.getElementById("character-name");
 const timeDisplay = document.getElementById("time-display");
@@ -45,6 +46,15 @@ function updateScene(sceneName) {
   sceneTitle.textContent = current.title;
   sceneText.textContent = current.text;
   characterName.textContent = current.character || "";
+  if (current.image) {
+    sceneImage.src = current.image;
+    sceneImage.alt = current.imageAlt || current.title;
+    sceneImage.hidden = false;
+  } else {
+    sceneImage.removeAttribute("src");
+    sceneImage.alt = "";
+    sceneImage.hidden = true;
+  }
   choicesContainer.replaceChildren();
   messageDisplay.textContent = "";
 
@@ -75,8 +85,10 @@ function updateScene(sceneName) {
 const scenes = {
   mediaLab: {
     title: "The Media Lab",
+    image: "medialab.jpg", width: 270, height: 270,
+    imageAlt: "The Media Lab",
     character: "Starting point | 6:00 PM",
-    text: "Rows of glowing monitors cast long shadows across silent editing suites. The heavy oak door clicked shut as evening security protocols engaged. This is where you were last seen before the exam drive vanished.",
+    text: "Rows of glowing monitors. The heavy oak door clicked shut as evening security protocols engaged. This is where you were last seen before the exam drive vanished.",
     choices: [
       { text: "Head to the Computer Lab and check the access logs", nextScene: "computerLab" },
       { text: "Sneak toward the Locked Administrative Hallway", nextScene: "administrativeHallway", alert: 1 },
@@ -85,19 +97,22 @@ const scenes = {
   },
   computerLab: {
     title: "The Computer Lab",
+    image: "computerlab.jpg", width: 270, height: 270,
+    imageAlt: "The Computer Lab",
     character: "A nervous tech-club president hunches over a terminal.",
-    text: "Desktop towers fill the cavernous room. The tech-club president mutters about firewall logs and encrypted data packets. Digital breadcrumbs may reveal who accessed the master terminal.",
+    text: "Desktop towers fill the darkroom. The tech-club president mutters about computer stuff. Digital breadcrumbs may reveal who accessed the terminal.",
     choices: [
       { text: "Ask the president about the access logs", action: () => addEvidence("Terminal Log Clue"), nextScene: "computerLabAfterLogs" },
       { text: "Search open student workstations for a cipher hint", action: () => addEvidence("Cipher Hint"), nextScene: "computerLab", alert: 2 },
       { text: "Head into the adjoining Custodial Corridor", nextScene: "custodialCorridor" },
       { text: "Return to the Media Lab", nextScene: "mediaLab" }
     ]
+  
   },
   computerLabAfterLogs: {
     title: "The Computer Lab",
     character: "The access log points to an unauthorized attempt from the Library.",
-    text: "The log confirms someone tried to reach the master terminal from the Library shortly before the drive disappeared. You have a lead, but you still need the key to the rare manuscript section.",
+    text: "The log confirms someone tried to reach the terminal from the Library shortly before the drive disappeared. You have a lead, but you still need the key to the rare manuscript section.",
     choices: [
       { text: "Go to the Journalism Office", nextScene: "journalismOffice" },
       { text: "Look for another route through the Custodial Corridor", nextScene: "custodialCorridor" },
@@ -107,7 +122,7 @@ const scenes = {
   journalismOffice: {
     title: "The Journalism Office",
     character: "Your desk is buried under old issues and deadline notes.",
-    text: "Whiteboards crowd the walls with story pitches and notes about the controversial grading glitch. Your investigative files may connect the vice principal to the missing drive.",
+    text: "Whiteboards crowd the walls with story pitches and notes about the controversial grading glitch. Your evidence may connect the vice principal to the missing drive.",
     choices: [
       { text: "Search the desk drawer", action: () => addEvidence("Skeleton Key"), nextScene: "journalismOfficeAfterSearch" },
       { text: "Review the printed notes on the grading glitch", action: () => addEvidence("Grading Glitch Evidence"), nextScene: "journalismOfficeAfterNotes" },
@@ -168,7 +183,7 @@ const scenes = {
   library: {
     title: "The Silent Library",
     character: "The rare manuscript section is sealed behind a heavy lock.",
-    text: "Moonlight cuts between towering mahogany shelves. A hollowed-out dictionary is rumored to hide the missing drive, but the inner stacks are locked.",
+    text: "Moonlight cuts between the towering shelves. A hollowed-out dictionary is rumored to hide the missing drive, but the inner stacks are locked.",
     choices: [
       { text: "Force the lock or search the stacks without a plan", nextScene: "endingCaught", alert: 3 },
       { text: "Slip out through the exit to the Inner Courtyard", nextScene: "innerCourtyard" },
@@ -189,7 +204,7 @@ const scenes = {
   endingTruth: {
     title: "Ending 1: The Truth Exposed",
     character: "True ending",
-    text: "The Skeleton Key opens the gated carrel. Inside a hollowed-out dictionary, you find the missing flash drive and proof of the grading glitch. The head student journalist admits hiding it to protect compromised students. Together, you publish the truth, clear your name, and the lockdown lifts.",
+    text: "The Skeleton Key opens the gated cubicle. Inside a hollowed-out dictionary, you find the missing flash drive and proof of the grading glitch. The head student journalist admits hiding it to protect compromised students. Together, you publish the truth, clear your name, and the lockdown lifts.",
     choices: []
   },
   endingCaught: {
@@ -208,4 +223,3 @@ const scenes = {
 
 renderStatus();
 updateScene("mediaLab");
-
