@@ -1,48 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Locked-Door Deadline</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card">
-    <h1 class="heading">Locked-Door Deadline</h1>
-    <p>Welcome to the Locked-Door Deadline story game. Make your choices wisely!</p>
-    <img src="hallway.jpg" width = "290" alt="Hallway">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Locked-Door Deadline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="siteNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="game.html">Play the game</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-
-    <style>
-        p{
-            color: rgb(38, 120, 120);
-            text-align:left;
-        }
-    </style>
-</head>
-<body>
-    
-You are an investigative student editor at the school paper. Rumors have been swirling all day about a  breach: a rare flash drive containing the upcoming final exam answers has vanished from the locked media lab. Worse, whispers in the courtyard claim the administration is pinning the theft directly on you to silence your recent reporting on school policies. With the automated security lockdown engaging at 7:00 PM, you have limited time to navigate the campus, uncover the real culprit, and clear your name before morning.
-   
-
-    <p><a href="about.html">About me</a></p>
-    <p><a href="Donate.html">Donate</a></p>
-    <p><a href="Contact.html">Contact Us</a></p>
-    <form action="game.html" method="get">
-        <label for="gender">Gender:</label>
-       <input type="radio" id="Female" name="gender" value="female">
-       <label for="Female">Female</label>
-       <input type="radio" id="Male" name="gender" value="male">
-       <label for="Male">Male</label>
-       <input type="radio" id="Other" name="gender" value="other">
-       <label for="Other">Other</label>
-        <br><br>
-        <label for="age">Age: Must be older than 14:</label>
-        <input type="number" name="age" id="age" min="15" required>
-        <br><br>
-        <input type="submit" value="Start Game">
-    </form>
-    </div>
+    <main class="container py-4">
+        <div class="row g-4 align-items-stretch">
+            <section class="col-lg-7">
+                <div class="story-panel h-100">
+                    <h1 class="heading">Locked-Door Deadline</h1>
+                    <p class="lead">Welcome to the Locked-Door Deadline story game. Make your choices wisely!</p>
+                    <img src="hallway.jpg" class="img-fluid rounded mb-3" alt="A school hallway after hours">
+                    <p>You are an investigative student editor at the school paper. Rumors have been swirling all day about a breach: a rare flash drive containing the upcoming final exam answers has vanished from the locked media lab.</p>
+                    <p class="mb-0">Worse, the administration may be pinning the theft on you to silence your reporting. With the automated security lockdown engaging at 7:00 PM, uncover the culprit and clear your name before morning.</p>
+                </div>
+            </section>
+            <section class="col-lg-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title h3">Before you begin</h2>
+                        <p class="card-text">Create your player profile to start the investigation.</p>
+                        <form action="game.html" method="get" class="mt-4">
+                            <fieldset class="mb-3">
+                                <legend class="form-label fs-6">Gender</legend>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="female" name="gender" value="female" required>
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="male" name="gender" value="male">
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="other" name="gender" value="other">
+                                    <label class="form-check-label" for="other">Other</label>
+                                </div>
+                            </fieldset>
+                            <div class="mb-4">
+                                <label for="age" class="form-label">Age (15 or older)</label>
+                                <input class="form-control" type="number" name="age" id="age" min="15" required>
+                            </div>
+                            <button class="btn btn-primary btn-lg" type="submit">Start the game</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

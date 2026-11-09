@@ -1,64 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locked-Door Deadline</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Play | Locked-Door Deadline</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <style>
         #scene-image {
-            width: 270px;
-            height: 270px;
+            width: 100%;
+            height: 320px;
+            max-height: 360px;
             object-fit: cover;
         }
-    </style>
 
+        #message-display:empty {
+            display: none;
+        }
+    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-      <nav>
-            <ul> 
-                <li><a href="index.html">Home</a></li>
-            </ul>
-            <ul> 
-                <li><a href="game.html">Play the game</a></li>
-            </ul>
-            <ul> 
-                <li><a href="about.html">About the creator</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Locked-Door Deadline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="siteNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="game.html">Play the game</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-    <header>
-        <h1 id="scene-title" class="heading">  </h1>
-        <h2 id="character-name">  </h2>
-    </header>
+    <main class="container py-4">
+        <div class="row g-4">
+            <section class="col-lg-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h1 id="scene-title" class="heading"></h1>
+                        <h2 id="character-name" class="h5 text-secondary"></h2>
+                        <img id="scene-image" class="img-fluid rounded mb-3" alt="" hidden>
+                        <p id="scene-text" class="mb-0"></p>
+                    </div>
+                </div>
+                <div id="choices-container" class="row g-2" aria-label="Story choices"></div>
+                <p id="message-display" class="alert alert-info mt-3" aria-live="polite"></p>
+            </section>
 
-    <img id="scene-image" alt="" hidden>
-    
-    <section class="card">
-    <p id="scene-text">     </p>
-
-    </section>
-
-    <section>
-        <div id="choices-container"> </div>
-    </section>   
-        
-    <section>
-        <p>Time: <span style="color: #447923;" id="time-display"></span></p>
-        <p>Alert level: <span style="color: #447923;" id="alert-display"></span></p>
-        <p>Evidence: <span style="color: #447923;" id="inventory-display"></span></p>
-
-        <p id="message-display"></p>
-    </section>
-
-
+            <aside class="col-lg-4">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 class="card-title h4">Investigation status</h2>
+                        <dl class="row mb-0">
+                            <dt class="col-sm-5">Time</dt>
+                            <dd class="col-sm-7" id="time-display"></dd>
+                            <dt class="col-sm-5">Alert level</dt>
+                            <dd class="col-sm-7" id="alert-display"></dd>
+                            <dt class="col-sm-5">Evidence</dt>
+                            <dd class="col-sm-7" id="inventory-display"></dd>
+                        </dl>
+                    </div>
+                </section>
+            </aside>
+        </div>
     </main>
-    <footer>
-
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

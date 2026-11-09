@@ -59,8 +59,11 @@ function updateScene(sceneName) {
   messageDisplay.textContent = "";
 
   current.choices.forEach((choice) => {
+    const choiceColumn = document.createElement("div");
+    choiceColumn.className = "col-12 col-md-6";
     const button = document.createElement("button");
     button.type = "button";
+    button.className = "btn btn-outline-primary text-start w-100 h-100";
     button.textContent = choice.text;
     button.addEventListener("click", () => {
       currentMinutes += choice.minutes ?? 5;
@@ -76,7 +79,8 @@ function updateScene(sceneName) {
         renderStatus();
       }
     });
-    choicesContainer.appendChild(button);
+    choiceColumn.appendChild(button);
+    choicesContainer.appendChild(choiceColumn);
   });
 
   renderStatus();

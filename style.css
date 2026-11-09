@@ -4,7 +4,7 @@ body {
     color: #2f1f1f;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    padding: 24px;
+	padding: 0;
 }
 
 /* Heading class and id styles */
@@ -38,7 +38,7 @@ body {
 }
 
 /* Card class styles */
-.card {
+.story-panel {
 	padding: 24px 32px;
 	border: 1.5px solid #b0b0b0;
 	border-radius: 10px;
@@ -46,17 +46,17 @@ body {
 	text-align: left;
 	box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
 	margin: 18px 0;
-	width: 80%;
+	width: 100%;
 	color: #1f1f1f;
 }
 
-.card p,
-.card li,
-.card label,
-.card a {
+.story-panel p,
+.story-panel li,
+.story-panel label,
+.story-panel a {
     color: #1f1f1f;
 }
 
-.card a {
+.story-panel a {
     text-decoration: underline;
 }
